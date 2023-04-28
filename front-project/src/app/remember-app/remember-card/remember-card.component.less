@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+.card {
+	background-color: transparent;
+	width: 300px;
+	height: 170px;
+}
+
+.card__content {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(131, 182, 146, 0.5);
+	border-radius: 10px;
+	font-family: 'Nunito', sans-serif;
+	transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card:hover .card__content {
+	background-color: rgba(131, 182, 146, 0.7);
+}
+
+.card_fliped .card__content {
+	transform: rotateY(180deg);
+}
+
+.card__front,
+.card__back {
+	position: absolute;
+  width: 100%;
+  height: 100%;
+
+	-webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.card__back {
+	transform: rotateY(180deg);
+}
+
+.card__term,
+.card__definition {
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	overflow: auto;
+}
+
+.card__term {
+	font-size: 18px;
+}
+
+.card__definition {
+	font-size: 14px;
+}
+
+.card__close {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 25px;
+	height: 25px;
+	cursor: pointer;
+}
+
+.card__close:hover:before,
+.card__close:hover:after {
+	background-color: #f0e9e9;
+}
+
+.card__close:before,
+.card__close:after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 5px;
+	bottom: 5px;
+	left: 50%;
+	width: 2px;
+	margin-left: -1px;
+	background-color: #999;
+	transform: rotate(45deg);
+}
+
+.card__close:after {
+	transform: rotate(-45deg);
+}

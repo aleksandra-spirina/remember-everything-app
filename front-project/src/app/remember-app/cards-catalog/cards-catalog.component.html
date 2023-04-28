@@ -1,0 +1,4 @@
+<div class="cards-container">
+	<app-remember-card *ngFor="let c of cards" [card]="c" (delete)="deleteCard($event)"
+		(flap)="flapCards($event)"></app-remember-card>
+</div>

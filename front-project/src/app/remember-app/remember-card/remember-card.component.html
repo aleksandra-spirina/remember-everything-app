@@ -1,0 +1,14 @@
+<div class="card" [ngClass]="{'card_fliped': card.fliped}" (click)="onCard($event)">
+	<div class="card__content" #cardContent>
+		<!-- Термин -->
+		<div class="card__front">
+			<div class="card__close"></div>
+			<div class="card__term"><span>{{card.term}}</span></div>
+		</div>
+		<!-- Определение -->
+		<div class="card__back">
+			<div class="card__close"></div>
+			<div class="card__definition"><span>{{card.definition}}</span></div>
+		</div>
+	</div>
+</div>
