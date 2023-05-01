@@ -15,7 +15,7 @@ export class RememberCardComponent {
 	element: Element = {} as Element;
 
 	@Output() delete = new EventEmitter<Card>();
-	@Output() flap = new EventEmitter<Card>();
+	@Output() flip = new EventEmitter<Card>();
 
 	ngAfterViewInit(): void {
 
@@ -28,9 +28,8 @@ export class RememberCardComponent {
 	}
 
 	flipCard(): void {
-		// this.card.fliped = !this.card.fliped;
 		this.transitionInProgress = true;
-		this.flap.next(this.card);
+		this.flip.next(this.card);
 	}
 
 	deleteCard(): void {

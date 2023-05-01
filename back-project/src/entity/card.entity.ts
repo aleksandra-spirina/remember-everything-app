@@ -1,4 +1,4 @@
-export interface Card {
+export interface CardEntity {
 	term: string;
 	definition: string;
 	flipped?: boolean;

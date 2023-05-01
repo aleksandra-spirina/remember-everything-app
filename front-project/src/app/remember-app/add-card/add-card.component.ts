@@ -23,7 +23,7 @@ export class AddCardComponent {
 		let addData: Card = {
 			term: this.form.get('term')?.value,
 			definition: this.form.get('definition')?.value,
-			fliped: false
+			flipped: false
 		};
 
 		this.add.next(addData);

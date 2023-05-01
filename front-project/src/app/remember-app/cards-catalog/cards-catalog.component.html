@@ -1,4 +1,11 @@
-<div class="cards-container">
-	<app-remember-card *ngFor="let c of cards" [card]="c" (delete)="deleteCard($event)"
-		(flap)="flapCards($event)"></app-remember-card>
+<div class="container">
+	<div class="cards-container">
+		<app-remember-card *ngFor="let c of cardsService.cards" [card]="c" 
+		(delete)="deleteCard($event)"
+		(flip)="flipCard($event)">
+		</app-remember-card>
+	</div>
+	<div class="control">
+		<button (click)="flipAllCards()">Перевернуть все карточки</button>
+	</div>
 </div>

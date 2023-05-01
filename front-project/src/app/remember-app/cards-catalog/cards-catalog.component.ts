@@ -1,24 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Card } from 'src/app/shared/inteface/Card';
-
-const startData: Card[] = [
-	{
-		term: 'Страх',
-		definition: 'неприятное чувство'
-	},
-	{
-		term: 'Работа',
-		definition: 'приятная необходимость'
-	},
-	{
-		term: 'Отдых',
-		definition: 'необходимая приятность'
-	},
-	{
-		term: 'Обед',
-		definition: 'отдых в середине дня'
-	}
-]
+import { CardsService } from 'src/app/shared/services/cards.service';
 
 @Component({
 	selector: 'app-cards-catalog',
@@ -26,31 +8,26 @@ const startData: Card[] = [
 	styleUrls: ['./cards-catalog.component.less']
 })
 export class CardsCatalogComponent {
-	cards: Card[] = [];
-
 	@Input()
 	set newCard(card: Card | undefined) {
 		if (card) {
-			this.cards.push(card);
+			this.cardsService.addCard(card);
 		}
 	}
 
-	constructor() {
-		this.cards = startData;
+	constructor(public cardsService: CardsService) {
+		this.cardsService.initialize();
 	}
 
 	deleteCard(card: Card): void {
-		let index = this.cards.indexOf(card);
-		this.cards.splice(index, 1);
+		this.cardsService.deleteCard(card);
 	}
 
-	flapCards(card: Card): void {
-		this.cards.forEach((elem) => {
-			if (elem !== card) {
-				elem.fliped = false;
-			} else {
-				elem.fliped = !elem.fliped;
-			}
-		});
+	flipCard(card: Card): void {
+		this.cardsService.flipCard(card);
+	} 
+
+	flipAllCards(): void {
+		this.cardsService.flipAllCards();
 	}
 }
